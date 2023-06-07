@@ -1,34 +1,89 @@
-Usage
-=====
+.. _table-of-contents:
 
-.. _installation:
+Table of Contents
+.. toctree::
+:maxdepth: 2
 
-Installation
-------------
+Introduction to Server-Sent Events
+Receiving events from the server
+Creating an EventSource instance
+Listening for message events
+Listening for custom events
+Sending events from the server
+Error handling
+Closing event streams
+Event stream format
+Introduction to Server-Sent Events
+Server-Sent Events (SSE)
+Server-Sent Events (SSE) is a standard that allows a web page to receive updates from a server over a single, long-lived HTTP connection. It provides a simple and efficient way to push data from the server to the client in real-time.
 
-To use Lumache, first install it using pip:
+Receiving events from the server
+To receive events from the server using SSE, the client needs to establish a connection and listen for incoming events. This can be done by creating an EventSource instance.
 
-.. code-block:: console
+Creating an EventSource instance
+To create an EventSource instance in JavaScript, you can use the following code:
 
-   (.venv) $ pip install lumache
+.. code-block:: javascript
 
-Creating recipes
-----------------
+const eventSource = new EventSource('/events');
 
-To retrieve a list of random ingredients,
-you can use the ``lumache.get_random_ingredients()`` function:
+In the above code, /events represents the URL from which the server sends events. You can replace it with the appropriate server endpoint.
 
-.. autofunction:: lumache.get_random_ingredients
+Listening for message events
+The message event is fired when the server sends a new event. To listen for message events, you can use the following code:
 
-The ``kind`` parameter should be either ``"meat"``, ``"fish"``,
-or ``"veggies"``. Otherwise, :py:func:`lumache.get_random_ingredients`
-will raise an exception.
+.. code-block:: javascript
 
-.. autoexception:: lumache.InvalidKindError
+eventSource.addEventListener('message', function(event) {
+const data = event.data;
+// Handle the received event data
+})
 
-For example:
+Listening for custom events
+Apart from the standard message event, the server can also send custom events. To listen for custom events, you can use the following code:
 
->>> import lumache
->>> lumache.get_random_ingredients()
-['shells', 'gorgonzola', 'parsley']
+.. code-block:: javascript
 
+eventSource.addEventListener('myevent', function(event) {
+const data = event.data;
+// Handle the received custom event data
+})
+
+In the above code, myevent represents the name of the custom event sent by the server.
+
+Sending events from the server
+The server can send events to connected clients using the SSE protocol. The events are typically sent in a specific format, which includes the event type, data, and optional fields like retry interval.
+
+Error handling
+In case of errors or connection issues, the server can send an error event to the client. The client can handle these errors by listening for the error event.
+
+.. code-block:: javascript
+
+eventSource.addEventListener('error', function(event) {
+const error = event.error;
+// Handle the error
+})
+
+Closing event streams
+To close the connection and stop receiving events, the client can call the close() method on the EventSource instance.
+
+.. code-block:: javascript
+
+eventSource.close();
+
+Event stream format
+The event stream format used by Server-Sent Events is a text-based format with a specific structure. It consists of lines of text, where each line can represent an event field such as event type, data, or retry interval.
+
+Here's an example of a basic event stream:
+
+::
+
+event: message
+data: Hello, world!
+
+event: customEvent
+data: Some custom data
+
+The above example demonstrates two events: a standard message event and a custom customEvent with their respective data.
+
+These are the main concepts of using Server-Sent Events. By following these guidelines, you can easily implement real-time updates in your web applications.
