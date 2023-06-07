@@ -2,7 +2,7 @@
 
 # -- Project information
 
-project = 'Read the docs - research'
+project = 'The "Server-Sent Events Documentation Repository" '
 copyright = 'marcetux'
 author = 'Hector'
 
