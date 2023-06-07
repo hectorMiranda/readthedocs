@@ -1,14 +1,15 @@
 Welcome to The "Server-Sent Events Documentation Repository" 
 ===================================
 
+```mermaid
+graph LR
+A[Client] --> B((EventSource))
+B -- Subscribe --> C[Server]
+C -- Send events --> B
+B -- Event handling --> A
 
 
-Check out the :doc:`usage` section for further information, including
-how to :ref:`installation` the project.
 
-.. note::
-
-   This project is under active development.
 
 Contents
 --------
