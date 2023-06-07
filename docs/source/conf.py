@@ -3,7 +3,7 @@
 # -- Project information
 
 project = 'The "Server-Sent Events Documentation Repository" '
-copyright = 'marcetux'
+copyright = '0xF0'
 author = 'Hector'
 
 release = '0.1'
