@@ -4,7 +4,7 @@
 
 project = 'The "Server-Sent Events Documentation Repository" '
 copyright = '0xF0'
-author = 'Hector'
+author = 'Hector Miranda'
 
 release = '0.1'
 version = '0.1.0'
