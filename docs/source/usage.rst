@@ -1,5 +1,3 @@
-Yes, I'm familiar with the RTS (reStructuredText) file format used by Read the Docs. Here's the same information formatted in RTS:
-
 .. _table-of-contents:
 
 Table of Contents
@@ -111,6 +109,4 @@ Here's an example of a basic event stream:
 
 The above example demonstrates two events: a standard `message` event and a custom `customEvent` with their respective data.
 
-These are the main concepts of using Server-Sent Events. By following these guidelines, you can easily implement real-time
-
- updates in your web applications.
+These are the main concepts of using Server-Sent Events. By following these guidelines, you can easily implement real-time updates in your web applications.
