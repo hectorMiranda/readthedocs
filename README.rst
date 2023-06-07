@@ -1,6 +1,8 @@
-The "Server-Sent Events Documentation Repository" 
+SSE Explorer
 =======================================
 
+SSE Explorer is a javascript app that consumes an SSE stream.
 
-Latest documentation:
+
+Learn more about SEE at:
 https://marcetux-readthedocs.readthedocs.io/en/latest/
