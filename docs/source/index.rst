@@ -1,4 +1,4 @@
-Welcome to The "Server-Sent Events Documentation Repository" 
+Welcome to The "Server-Sent Events Documentation Repository" 0.0.2
 ===================================
 
 ```mermaid
